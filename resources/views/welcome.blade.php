@@ -84,7 +84,7 @@
                                         </div>
                                         <form method="POST" action="{{ route('logout') }}" class="inline">
                                             @csrf
-                                            <button type="submit" class="text-white bg-black hover:bg-gray-900 px-8 py-2.5 rounded-[20px] transition-colors">
+                                            <button type="submit" class="text-white bg-black hover:bg-gray-900 px-8 py-2.5 rounded-[20px] transition-colors" onclick="this.disabled=true;this.form.submit();">
                                                 Logout
                                             </button>
                                         </form>
@@ -344,13 +344,7 @@
                        action="{{ route('register') }}"
                        @submit.prevent="
                            isSubmitting = true;
-                           $el.submit();
-                           $nextTick(() => {
-                               if ($el.querySelector('.text-red-500')) {
-                                   showNotification('Please check your input', 'error');
-                                   isSubmitting = false;
-                               }
-                           });"
+                           $el.submit();"
                    >
                        @csrf
                        <div>
